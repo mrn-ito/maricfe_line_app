@@ -15,7 +15,13 @@
     <script>
         async function main() {
             // ここに「LIFF ID」を入れます
-            await liff.init({ liffId: "2009861857-bpl07gP4" });
+            await liff.init({ liffId: "2009861857-bpl07gP4" })
+            .then(() => {
+                // start to use LIFF's api
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
             if (liff.isLoggedIn()) {
                 const profile = await liff.getProfile();
